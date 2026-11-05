@@ -3,3 +3,7 @@
 **/.vite/
 *.local
 .DS_Store
+
+# Generated projects
+generated/*
+!generated/.gitkeep
