@@ -30,7 +30,8 @@ micro/
 │   ├── README.md
 │   ├── minimal-react/
 │   └── dashboard/
-└── generated/
+├── generated/
+└── landing/
 ```
 
 ## Workflow
@@ -41,6 +42,21 @@ micro/
 4. The agent selects a template or scaffolds a minimal app.
 5. The agent creates `generated/<project>/`, implements, installs, runs, and verifies it.
 6. The agent reports the path, preview URL, and summary, then updates `PROJECTS.md`.
+
+## Switch setup
+
+Switch bridges Mattermost and the coding agent. Here it is connected to the
+**Antigravity** agent, which joins a Mattermost channel and is called with a
+mention.
+
+```text
+Mattermost channel  →  Switch  →  Antigravity agent  →  generated/ app
+```
+
+1. Start Switch with the Antigravity agent connected.
+2. Add the agent to the Mattermost channel you want to work in.
+3. Mention `@micro` with an application idea and assign the task. The agent
+   builds the app in this workspace and replies with the path and preview URL.
 
 ## Templates
 
@@ -64,4 +80,5 @@ See [`templates/README.md`](templates/README.md) for selection and copying rules
 
 ## Status
 
-Workspace initialized. Agent execution and Switch/Mattermost integration are out of scope for this task.
+Micro runs in Mattermost through Switch and the Antigravity agent. The landing
+page lives in `landing/` and deploys to Cloudflare Pages.
